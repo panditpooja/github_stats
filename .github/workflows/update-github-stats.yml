@@ -37,45 +37,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh
-          name: Generate GitHub Stats
-
-on:
-  schedule:
-    - cron: "0 */6 * * *"  # ⏰ Runs every 6 hours (UTC: 00:00, 06:00, 12:00, 18:00)
-  workflow_dispatch:       # Allow manual runs too
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checkout your repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Set up Python environment
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      # Install required Python libraries
-      - name: Install dependencies
-        run: pip install requests svgwrite pytz
-
-      # Run Python script to generate GitHub stats
-      - name: Generate GitHub Stats
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          python generate_stats.py
-
-      # Commit and push changes only if SVG updated
-      - name: Commit and push changes
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        run: |
-          mkdir -p ~/.ssh
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
