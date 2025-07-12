@@ -1,9 +1,8 @@
 # 🔥 My GitHub Stats
 
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
-[![GitHub Actions](https://github.com/panditpooja/github_stats/actions/workflows/update-github-stats.yml/badge.svg)](https://github.com/panditpooja/github_stats/actions)
-[![Last Commit](https://img.shields.io/github/last-commit/panditpooja/github_stats.svg)](https://github.com/panditpooja/github_stats/commits/main)
-
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![GitHub Actions](https://github.com/panditpooja/github_stats/actions/workflows/update-github-stats.yml/badge.svg?logo=github)](https://github.com/panditpooja/github_stats/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/panditpooja/github_stats.svg?logo=git&logoColor=white)](https://github.com/panditpooja/github_stats/commits/main)
 
 This repository contains a workflow and Python script to generate a custom GitHub stats badge (SVG image) that displays your total contributions, current streak, and longest streak.
 
@@ -119,11 +118,11 @@ Embed it in your README.md like this:
 
 ---
 
-## ✍️ Author
+# ✍️ Author
 
 **Pooja Pandit**  
 Master’s Student in Information Science (Machine Learning)  
 The University of Arizona  
 
 [![GitHub](https://img.shields.io/badge/GitHub-panditpooja-black?logo=github)](https://github.com/panditpooja)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-pooja--pandit-blue?logo=linkedin)](https://www.linkedin.com/in/pooja-pandit-177978135/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-pooja--pandit-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pooja-pandit-177978135/)
