@@ -212,7 +212,7 @@ dwg.add(dwg.text(str(current_streak), insert=(350, 125), fill=text_color,
 dwg.add(dwg.text("Current Streak", insert=(350, 170), fill=accent_color,
                  font_size="16px", font_weight="bold", text_anchor="middle"))
 if current_streak_start and current_streak_end:
-    streak_range = f"{current_streak_start.strftime('%b %d')} - {current_streak_end.strftime('%b %d')}"
+    streak_range = f"{current_streak_start.strftime('%b %d, %Y')} - {current_streak_end.strftime('%b %d, %Y')}"
 else:
     streak_range = "No streak"
 dwg.add(dwg.text(streak_range, insert=(350, 195), fill=subtext_color,
@@ -224,7 +224,7 @@ dwg.add(dwg.text(str(longest_streak), insert=(584, 110), fill=text_color,
 dwg.add(dwg.text("Longest Streak", insert=(584, 150), fill=text_color,
                  font_size="16px", text_anchor="middle"))
 if longest_streak_start and longest_streak_end:
-    longest_range = f"{longest_streak_start.strftime('%b %d')} - {longest_streak_end.strftime('%b %d')}"
+    longest_range = f"{longest_streak_start.strftime('%b %d, %Y')} - {longest_streak_end.strftime('%b %d, %Y')}"
 else:
     longest_range = "N/A"
 dwg.add(dwg.text(longest_range, insert=(584, 180), fill=subtext_color,
