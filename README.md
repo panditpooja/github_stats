@@ -84,9 +84,11 @@ Embed it in your README.md like this:
 
 ### Example Badge
 🔥 **My GitHub Stats**
-- **Total Contributions**: 123
-- **Current Streak**: 5 days
-- **Longest Streak**: 8 days
+- **Total Contributions**: 303
+- **Current Streak**: 11 days (Date Range)
+- **Longest Streak**: 11 days (Date Range)
+
+![Example Badge](https://github.com/panditpooja/github_stats/blob/main/demo_github_stats.png)
 
 ---
 
