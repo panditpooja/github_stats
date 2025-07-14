@@ -11,37 +11,49 @@ The badge updates automatically every day using GitHub Actions and can be embedd
 ---
 
 ## 🚀 Features
-- Fetches contribution data from the GitHub GraphQL API.
-- Calculates:
+- 📊 Fetches contribution data from the GitHub GraphQL API
+- 🔥 Calculates:
   - Total contributions since account creation
   - Current contribution streak
   - Longest contribution streak
-- Renders this information into a visually appealing SVG badge.
-- Automates daily updates with a GitHub Actions workflow.
+- 🖌️ Renders this information into a **visually appealing SVG badge**
+- 🤖 Automates daily updates with a GitHub Actions workflow
 
 ---
 
-## 📁 Project Structure
-```
-.github/
-└── workflows/
-    └── update-github-stats.yml    # GitHub Actions workflow
+## 🌟 Live Example Badge
 
-assets/
-└── github-stats.svg               # Generated SVG badge
-
-generate_stats.py                   # Python script to fetch and render stats
-github_stats_workflow_documentation.pdf  # Project documentation
-README.md                            # Project overview and instructions
-```
+![GitHub Stats](assets/github-stats.svg)
 
 ---
 
-## 🛠️ Setup Instructions
+<details>
+<summary>📊 Example Badges (Click to Expand)</summary>
+
+🔥 **My GitHub Stats**
+- **Total Contributions**: 303
+- **Current Streak**: 11 days (Date Range)
+- **Longest Streak**: 11 days (Date Range)
+
+![Example Badge](https://github.com/panditpooja/github_stats/blob/main/demo_github_stats.png)
+
+🔥 **Updated Stats**
+- **Total Contributions**: 306
+- **Current Streak**: 12 days (Date Range)
+- **Longest Streak**: 12 days (Date Range)
+
+![Example_Updated_Badge](https://github.com/panditpooja/github_stats/blob/main/updated_git_stats.png)
+
+</details>
+
+---
+
+<details>
+<summary>🛠️ Setup Instructions (Click to Expand)</summary>
 
 ### 1️⃣ Prerequisites
 - A GitHub account
-- Python 3 installed locally (if you want to test the script manually)
+- Python 3 installed locally (for manual testing)
 - A Personal Access Token with `repo` and `read:user` permissions
 
 ### 2️⃣ Repository Setup
@@ -72,44 +84,37 @@ Commit all files to your repository and push changes to GitHub.
 - The workflow runs automatically every day.
 - You can also trigger it manually from the **Actions** tab.
 
+</details>
+
 ---
 
 ## 📤 Output
-The workflow generates an SVG badge at `assets/github-stats.svg`.
+The workflow generates an SVG badge at `assets/github-stats.svg`.  
 
-Embed it in your README.md like this:
+Embed it in your README.md like this:  
 ```markdown
 ![GitHub Stats](assets/github-stats.svg)
 ```
 
-### Example Badge
-🔥 **My GitHub Stats**
-- **Total Contributions**: 303
-- **Current Streak**: 11 days (Date Range)
-- **Longest Streak**: 11 days (Date Range)
-
-![Example Badge](https://github.com/panditpooja/github_stats/blob/main/demo_github_stats.png)
-
 ---
 
-## 📝 Files Overview
+<details>
+<summary>📁 Project Structure (Click to Expand)</summary>
 
-### `generate_stats.py`
-- Fetches data from GitHub GraphQL API.
-- Calculates contribution totals and streaks.
-- Renders stats into an SVG badge.
-- Key Configurations:
-  - `USERNAME`: Set your GitHub username
-  - `TOKEN`: Fetched securely from GitHub Actions secrets.
+```
+.github/
+└── workflows/
+    └── update-github-stats.yml    # GitHub Actions workflow
 
-### `.github/workflows/update-github-stats.yml`
-- Automates running the Python script daily via GitHub Actions.
+assets/
+└── github-stats.svg               # Generated SVG badge
 
-### `assets/github-stats.svg`
-- Output badge that displays your contribution stats.
+generate_stats.py                   # Python script to fetch and render stats
+github_stats_workflow_documentation.pdf  # Project documentation
+README.md                            # Project overview and instructions
+```
 
-### `github_stats_workflow_documentation.pdf`
-- Contains step-by-step documentation for setting up the workflow.
+</details>
 
 ---
 
@@ -120,7 +125,7 @@ Embed it in your README.md like this:
 
 ---
 
-# ✍️ Author
+## ✍️ Author
 
 **Pooja Pandit**  
 Master’s Student in Information Science (Machine Learning)  
@@ -128,3 +133,5 @@ The University of Arizona
 
 [![GitHub](https://img.shields.io/badge/GitHub-panditpooja-black?logo=github)](https://github.com/panditpooja)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-pooja--pandit-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pooja-pandit-177978135/)
+
+---
