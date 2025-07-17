@@ -44,6 +44,13 @@ The badge updates automatically every day using GitHub Actions and can be embedd
 
 ![Example_Updated_Badge](https://github.com/panditpooja/github_stats/blob/main/updated_git_stats.png)
 
+🔥 **New Streak Stats**
+- **Total Contributions**: 314
+- **Current Streak**: 1 day (Date Range)
+- **Longest Streak**: 12 days (Date Range)
+
+![Example_Updated_Badge](https://github.com/panditpooja/github_stats/blob/main/fresh_git_stats_after_gaps.jpg)
+
 </details>
 
 ---
