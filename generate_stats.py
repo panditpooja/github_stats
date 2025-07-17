@@ -209,7 +209,7 @@ dwg.add(dwg.text(f"{account_created_at.strftime('%b %d, %Y')} - Present",
 dwg.add(dwg.circle(center=(350, 110), r=40, stroke=accent_color, stroke_width=5, fill="none"))
 dwg.add(dwg.text(str(current_streak), insert=(350, 125), fill=text_color,
                  font_size="40px", font_weight="bold", text_anchor="middle"))
-dwg.add(dwg.text("Current Streak", insert=(350, 170), fill=accent_color,
+dwg.add(dwg.text("Latest Streak", insert=(350, 170), fill=accent_color,
                  font_size="16px", font_weight="bold", text_anchor="middle"))
 if current_streak_start and current_streak_end:
     streak_range = f"{current_streak_start.strftime('%b %d, %Y')} - {current_streak_end.strftime('%b %d, %Y')}"
