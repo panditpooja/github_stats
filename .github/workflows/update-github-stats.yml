@@ -3,7 +3,7 @@ name: Generate GitHub Stats
 on:
   schedule:
     - cron: "0 15 * * *"  # ⏰ Runs daily at 08:00 AM MST (15:00 UTC)
-    - cron: "0 2 * * *"   # ⏰ Runs daily at 07:00 PM MST (02:00 UTC next day)
+    # - cron: "0 2 * * *"   # ⏰ Runs daily at 07:00 PM MST (02:00 UTC next day)
   workflow_dispatch:       # Allow manual runs too
 
 jobs:
