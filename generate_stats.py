@@ -58,13 +58,19 @@ account_created_at = datetime.datetime.strptime(user_data["createdAt"], "%Y-%m-%
 # -------------------------------
 # FETCH ALL-TIME CONTRIBUTIONS (year by year)
 # -------------------------------
-total_contributions = 0
-all_days = []
+# Key by date so overlapping calendar weeks across year windows cannot
+# double-count totals or inflate streaks.
+days_by_date = {}
 print("📡 Fetching GitHub contribution data year by year...")
 
 year_start = account_created_at
 while year_start <= today_utc:
-    year_end = min(year_start.replace(year=year_start.year + 1) - datetime.timedelta(days=1), today_utc)
+    # Safe next-year roll for leap-day anniversaries (Feb 29 → Feb 28).
+    try:
+        next_anniversary = year_start.replace(year=year_start.year + 1)
+    except ValueError:
+        next_anniversary = datetime.date(year_start.year + 1, 2, 28)
+    year_end = min(next_anniversary - datetime.timedelta(days=1), today_utc)
     from_date = year_start.isoformat() + "T00:00:00Z"
     to_date = year_end.isoformat() + "T23:59:59Z"
 
@@ -103,19 +109,20 @@ while year_start <= today_utc:
         print(json_response["errors"])
         exit(1)
 
-    # Parse contribution data for totals and streak calculations
+    # Keep only days inside this window. GitHub returns full Sun–Sat weeks
+    # that can spill outside from/to and overlap the next year slice.
     weeks = json_response["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
     for week in weeks:
         for day in week["contributionDays"]:
-            count = day["contributionCount"]
             contribution_date = datetime.datetime.strptime(day["date"], "%Y-%m-%d").date()
-            total_contributions += count
-            all_days.append({
-                "date": contribution_date,
-                "count": count
-            })
+            if contribution_date < year_start or contribution_date > year_end:
+                continue
+            days_by_date[contribution_date] = day["contributionCount"]
 
     year_start = year_end + datetime.timedelta(days=1)
+
+all_days = [{"date": d, "count": c} for d, c in sorted(days_by_date.items())]
+total_contributions = sum(day["count"] for day in all_days)
 
 print(f"✅ Total Contributions: {total_contributions}")
 print(f"📅 Today (UTC): {today_utc}")
@@ -127,26 +134,28 @@ current_streak, longest_streak = 0, 0
 current_streak_start, current_streak_end = None, None
 longest_streak_start, longest_streak_end = None, None
 
-all_days.sort(key=lambda d: d["date"])  # Ensure days are sorted
-
 temp_streak = 0
 temp_start_date = None
+prev_date = None
 
-# Find longest streak
+# Find longest streak (require consecutive calendar days, same as latest)
 for day in all_days:
     if day["count"] > 0:
-        if temp_streak == 0:
+        if temp_streak == 0 or prev_date is None or (day["date"] - prev_date).days != 1:
+            temp_streak = 1
             temp_start_date = day["date"]
-        temp_streak += 1
+        else:
+            temp_streak += 1
 
-        # Update longest streak if needed
         if temp_streak > longest_streak:
             longest_streak = temp_streak
             longest_streak_start = temp_start_date
             longest_streak_end = day["date"]
+        prev_date = day["date"]
     else:
         temp_streak = 0
         temp_start_date = None
+        prev_date = None
 
 # Find current streak (ending at last contribution day)
 for i in reversed(range(len(all_days))):
